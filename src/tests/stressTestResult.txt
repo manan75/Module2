@@ -1,0 +1,30 @@
+  execution: local
+        script: src/tests/stress.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 200 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: Up to 200 looping VUs for 2m0s over 6 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 20705   171.996066/s
+    checks_succeeded...: 100.00% 20705 out of 20705
+    checks_failed......: 0.00%   0 out of 20705
+
+    ✓ correct status
+
+    HTTP
+    http_req_duration..............: avg=2.66ms  min=503.9µs  med=2.5ms    max=27.06ms p(90)=4.03ms   p(95)=4.66ms
+      { expected_response:true }...: avg=2.92ms  min=505.4µs  med=2.68ms   max=27.06ms p(90)=4.28ms   p(95)=4.89ms
+    http_req_failed................: 29.55% 6119 out of 20705
+    http_reqs......................: 20705  171.996066/s
+
+    EXECUTION
+    iteration_duration.............: avg=503.1ms min=500.53ms med=502.89ms max=527.6ms p(90)=504.54ms p(95)=505.19ms
+    iterations.....................: 20705  171.996066/s
+    vus............................: 3      min=1             max=199
+    vus_max........................: 200    min=200           max=200
+
+    NETWORK
+    http_req_failed................: 29.55% 6119 out of 20705
+    http_reqs......................: 20705  171.996066/s

@@ -1,3 +1,11 @@
+/*
+@file ApiKey.ts
+@description
+Mongoose model for storing API keys.
+Includes fields for key hash, roles, owner, active status, and timestamps.
+Module: API Key Authentication (Module 2)
+
+*/
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface IApiKey extends Document {

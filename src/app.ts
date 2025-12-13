@@ -1,10 +1,17 @@
+/*
+@file app.ts
+@description
+Main application entry point.
+Sets up Express server, connects to MongoDB, and defines routes.
+Module: API Key Authentication (Module 2)
+
+*/
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { apiKeyAuth } from "./middleware/apiKeyAuth";
 
 dotenv.config();
-
 const app = express();
 app.use(express.json());
 

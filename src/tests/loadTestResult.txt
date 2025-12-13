@@ -1,0 +1,24 @@
+  execution: local
+        script: src/tests/load.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 50 max VUs, 1m0s max duration (incl. graceful stop)
+              * default: 50 looping VUs for 30s (gracefulStop: 30s)       
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 3000   99.107558/s
+    checks_succeeded...: 98.33% 2950 out of 3000
+    checks_failed......: 1.66%  50 out of 3000
+
+    ✓ valid key → correct status
+    ✗ latency < 30ms
+      ↳  96% — ✓ 1450 / ✗ 50
+    ✓ random key → correct status
+    ✓ invalid key → correct status
+
+    HTTP
+    http_req_duration..............: avg=6.92ms min=0s       med=3.02ms max=152.6ms  p(90)=6.44ms p(95)=9.57ms
+      { expected_response:true }...: avg=8.33ms min=506.29µs med=3.73ms max=151.78ms p(90)=7.8ms  p(95)=12.32ms
+    http_req_failed................: 67.20% 1008 out of 1500
+    http_reqs......................: 1500   49.553779/s
