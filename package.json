@@ -2,10 +2,10 @@
   "name": "module2",
   "version": "1.0.0",
   "description": "",
-  
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx src/app.ts"
   },
   "repository": {
     "type": "git",
@@ -14,20 +14,25 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "bugs": {
     "url": "https://github.com/manan75/Module2/issues"
   },
   "homepage": "https://github.com/manan75/Module2#readme",
   "dependencies": {
     "@prisma/client": "^7.1.0",
+    "bcrypt": "^6.0.0",
+    "express": "^5.2.1",
+    "ioredis": "^5.8.2",
+    "mongodb": "^7.0.0",
     "redis": "^5.10.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^25.0.1",
     "prisma": "^7.1.0",
+    "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
 }
