@@ -1,0 +1,33 @@
+{
+  "name": "module2",
+  "version": "1.0.0",
+  "description": "",
+  
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manan75/Module2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/manan75/Module2/issues"
+  },
+  "homepage": "https://github.com/manan75/Module2#readme",
+  "dependencies": {
+    "@prisma/client": "^7.1.0",
+    "redis": "^5.10.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.0.1",
+    "prisma": "^7.1.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  }
+}
