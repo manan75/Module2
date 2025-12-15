@@ -10,6 +10,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { apiKeyAuth } from "./middleware/apiKeyAuth";
+import { redisMiddleware } from "./middleware/redisMiddleware";
 
 dotenv.config();
 const app = express();
@@ -25,7 +26,7 @@ mongoose
   });
 
 // Protected test route (Module 2 output)
-app.get("/test", apiKeyAuth, (req, res) => {
+app.get("/test", redisMiddleware, (req, res) => {
   res.json({
     message: "API key authenticated",
     apiKeyData: req.apiKey

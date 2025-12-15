@@ -13,7 +13,6 @@ import redis from "../redis/redis";
 import ApiKey from "../models/ApiKey";
 import { hashApiKey } from "../utils/hash";
 import { log } from "node:console";
-
 // Extend Express Request
 declare global {
   namespace Express {
@@ -25,7 +24,6 @@ declare global {
     }
   }
 }
-
 export async function apiKeyAuth(
   req: Request,
   res: Response,
@@ -36,16 +34,13 @@ export async function apiKeyAuth(
     if (!rawKey) {
       return res.status(401).json({ error: "API key missing" });
     }
-
-    const keyHash = hashApiKey(rawKey);
-
+    const keyHash =  hashApiKey(rawKey);
     // Check cached invalid key
     const invalid = await redis.get(`apikey:invalid:${keyHash}`);
     if (invalid) {
       console.log("Cached invalid key hit:", keyHash);
       return res.status(401).json({ error: "Invalid API key" });
     }
-
     //  Check cached valid key
     const cached = await redis.get(`apikey:valid:${keyHash}`);
     if (cached) {
@@ -53,7 +48,6 @@ export async function apiKeyAuth(
       req.apiKey = JSON.parse(cached);
       return next();
     }
-
     //  MongoDB lookup
     const apiKeyDoc = await ApiKey.findOne({
       keyHash,
