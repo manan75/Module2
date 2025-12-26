@@ -7,9 +7,9 @@ Module: API Key Authentication (Module 2)
 
 */
 import express from "express";
-import mongoose from "mongoose";
+//import mongoose from "mongoose";
 import dotenv from "dotenv";
-import { apiKeyAuth } from "./middleware/apiKeyAuth";
+//import { apiKeyAuth } from "./middleware/apiKeyAuth";
 import { redisMiddleware } from "./middleware/redisMiddleware";
 
 dotenv.config();
@@ -17,6 +17,7 @@ const app = express();
 app.use(express.json());
 
 // MongoDB connection
+/*
 mongoose
   .connect(process.env.MONGO_URI!)
   .then(() => console.log("MongoDB connected"))
@@ -24,7 +25,7 @@ mongoose
     console.error("MongoDB error:", err);
     process.exit(1);
   });
-
+*/
 // Protected test route (Module 2 output)
 app.get("/test", redisMiddleware, (req, res) => {
   res.json({
