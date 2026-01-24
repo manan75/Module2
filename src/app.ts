@@ -11,6 +11,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { apiKeyAuth } from "./middleware/apiKeyAuth";
 import { redisMiddleware } from "./middleware/redisMiddleware";
+import { generateApiKeyHandler } from "./keyGen/keyGenController";
 
 dotenv.config();
 const app = express();
@@ -32,6 +33,8 @@ app.get("/test", redisMiddleware, (req, res) => {
     apiKeyData: req.apiKey
   });
 });
+
+app.post("/generate-key", generateApiKeyHandler);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

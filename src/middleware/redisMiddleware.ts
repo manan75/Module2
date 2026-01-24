@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import redis from "../redis/redis";
-import ApiKey from "../models/ApiKey";
+//import ApiKey from "../models/ApiKey";
 import { hashApiKey } from "../utils/hash";
 
 export async function redisMiddleware(
@@ -20,19 +20,19 @@ export async function redisMiddleware(
     const validCacheKey = `apikey:cache:valid:${keyHash}`;
     const storeKey = `apikey:store:${keyHash}`;
     console.log(storeKey);
-    // 🚫 Cached invalid key
+    //  Cached invalid key
     if (await redis.get(invalidCacheKey)) {
       return res.status(401).json({ error: "Invalid API key 2" });
     }
 
-    // ✅ Cached valid key
+    //  Cached valid key
     const cachedValid = await redis.get(validCacheKey);
     if (cachedValid) {
       req.apiKey = JSON.parse(cachedValid);
       return next();
     }
 
-    // 📦 Permanent store lookup
+    //  lookup
     const stored = await redis.get(storeKey);
     if (!stored) {
       // cache invalid
